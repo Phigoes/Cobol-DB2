@@ -1,0 +1,53 @@
+       IDENTIFICATION DIVISION.
+	   PROGRAM-ID.
+	       ALUNO02.
+	   AUTHOR.
+	       PHILIPP.
+	  ***************************************
+	  *     EXIBIR BEM VINDO AO COBOL       *
+	  ***************************************
+	  *
+	   ENVIRONMENT DIVISION.
+	  *
+	   DATA DIVISION.
+	   WORKING-STORAGE SECTION.
+	   01  DATA-SIST.
+		   03 ANO-SIST    PIC   99    VALUE ZEROS.
+		   03 MES-SIST    PIC   99    VALUE ZEROS.
+		   03 DIA-SIST    PIC   99    VALUE ZEROS.
+	   01  DATA-EXIBE.
+	       05 DIA-EXIBE   PIC   99    VALUE ZEROS.
+		   05 FILLER      PIC   X     VALUE '/'.
+		   05 MES-EXIBE   PIC   99    VALUE ZEROS.
+		   05 FILLER      PIC   XXX   VALUE '/20'.
+		   05 ANO-EXIBE   PIC   99    VALUE ZEROS.
+	   01  HORA-SIST.
+	       07 HOR-SIST    PIC   99    VALUE ZEROS.
+		   07 MIN-SIST    PIC   99    VALUE ZEROS.
+		   07 SEG-SIST    PIC   99    VALUE ZEROS.
+		   07 CEN-SIST    PIC   99    VALUE ZEROS.
+	   01  HORA-EXIBE.
+	       09 HOR-EXIBE   PIC   99    VALUE ZEROS.
+		   09 FILLER      PIC   X     VALUE ':'.
+		   09 MIN-EXIBE   PIC   99    VALUE ZEROS.
+		   09 FILLER      PIC   X     VALUE ':'.
+		   09 SEG-EXIBE   PIC   99    VALUE ZEROS.
+	   77  NOME           PIC   A(10) VALUE SPACES.
+	  *
+	   PROCEDURE DIVISION.
+	   UNICA SECTION.
+	   INICIO.
+		   ACCEPT NOME      FROM SYSIN.
+		   ACCEPT DATA-SIST FROM DATE.
+		   ACCEPT HORA-SIST FROM TIME.
+		   MOVE   DIA-SIST  TO DIA-EXIBE.
+		   MOVE   MES-SIST  TO MES-EXIBE.
+		   MOVE   ANO-SIST  TO ANO-EXIBE.
+		   MOVE   HOR-SIST  TO HOR-EXIBE.
+		   MOVE   MIN-SIST  TO MIN-EXIBE.
+		   MOVE   SEG-SIST  TO SEG-EXIBE.
+		   DISPLAY 'OLA '   NOME
+				   ', BEM VINDO AO CURSO DE COBOL'.
+		   DISPLAY 'A DATA EH: ' DATA-EXIBE.
+		   DISPLAY 'HORA: '      HORA-EXIBE.
+		   STOP RUN.
